@@ -348,11 +348,7 @@ while run:
             bias[i] = random.randint(0,1)
             temp = bias[i] * 10 + random.randint(0, 9)
             #Gets a random text for each stock from the 2d array
-            try:
-                text = BiasesArray[i][temp]
-            except:
-                print("i",i,"temp",temp)
-                text = BiasesArray[i][9]
+            text = BiasesArray[i][temp]
             #appends the text to the start_string
             start_string += text
             start_string += " "
@@ -377,7 +373,6 @@ while run:
             pygame.draw.rect(screen, WHITE, (0, HEIGHT//2, WIDTH, HEIGHT))
             pygame.display.update()
             for i in range(0,8):
-                print("x:",x,"y:",y,"stock:",items[i],"bias:",bias[i])
                 prices[i] = round(prices[i] * stock(x, y, 150, 100, bias[i],items[i]),1)
                 if i == 3:
                     y += HEIGHT//4
